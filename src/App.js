@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import CreateSong from './components/CreateSong/CreateSong';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
 
@@ -15,13 +17,26 @@ function App() {
     console.log(response.data);
     setSongs(response.data)
   }
+
+
+  async function createSong(newSong){
+    const response = await axios.post('http://127.0.0.1:8000/music/', newSong);
+    console.log(response.data);
+    getAllSongs()
+  }
   
   return (
-    <div>
+    
+    <div className='container-fluid'>
+      <NavBar/>
       
-      <button onClick={() => getAllSongs()}>Get All Songs</button>
-    </div>
-  );
+      <div>
+        
+        <button onClick={() => getAllSongs()}>Get All Songs</button>
+      </div>
+     
+      </div>  
+    );
 }
 
 export default App;
