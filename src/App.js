@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CreateSong from './components/CreateSong/CreateSong';
 import NavBar from './components/NavBar/NavBar';
+import DisplayMusic from './components/DisplayMusic/DisplayMusic';
+import SearchBar from './components/SearchBar/SearchBar';
+import './App.css';
 
 function App() {
 
@@ -28,14 +31,26 @@ function App() {
   return (
     
     <div className='container-fluid'>
-      <NavBar/>
-      
       <div>
-        
-        <button onClick={() => getAllSongs()}>Get All Songs</button>
+        <header>
+          <NavBar/>
+        </header>
+        <div className='border-box'>
+          <SearchBar entry = {songs} />
+        </div>
+        <div className='song-box'>
+          <DisplayMusic parentEntries = {songs} />
+        </div>
+        <br/>
+        <br/>
+        <div className='border-box'>
+          <CreateSong addNewSong={createSong} />
+        </div>
+      
+      
       </div>
+    </div>
      
-      </div>  
     );
 }
 

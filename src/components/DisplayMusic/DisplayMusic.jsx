@@ -15,7 +15,7 @@ const DisplayMusic = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.parentEntries.map((entry, index) => {
+                {props.parentEntries.map((song, index) => {
                     return (
                         <tr key={index}>
                             <td>{song.title}</td>
