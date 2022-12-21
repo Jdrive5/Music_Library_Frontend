@@ -36,7 +36,7 @@ function App() {
           <NavBar/>
         </header>
         <div className='border-box'>
-          <SearchBar entry = {songs} />
+          <SearchBar songs={songs} setSongs={setSongs}/>
         </div>
         <div className='song-box'>
           <DisplayMusic parentEntries = {songs} />
