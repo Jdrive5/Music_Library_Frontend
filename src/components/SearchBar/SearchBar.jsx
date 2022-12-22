@@ -6,12 +6,14 @@ const SearchBar = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
+        console.log(props.songs)
+        console.log(search)
         let response = props.songs.filter((song) => {
-           if (song.title.inlcudes(search) ||
-            song.artist.includes(search) ||
-            song.album.includes(search) ||
-            song.release_date.includes(search) ||
-            song.genre.includes(search)) {
+           if (song.title.search(search) ||
+            song.artist.search(search) ||
+            song.album.search(search) ||
+            song.release_date.search(search) ||
+            song.genre.search(search)) {
             return true;
         } 
         else {
